@@ -5,5 +5,5 @@ declare module '@capacitor/core' {
 }
 
 export interface FacebookAnalyticsPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  logEvent(event: string, params?: any): Promise<string>;
 }
