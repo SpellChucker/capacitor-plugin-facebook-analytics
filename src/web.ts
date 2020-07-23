@@ -9,9 +9,9 @@ export class FacebookAnalyticsWeb extends WebPlugin implements FacebookAnalytics
     });
   }
 
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  logEvent(options: { event: string, params?: any }): Promise<string> {
+    // TODO: Implement.
+    return Promise.resolve(options.event);
   }
 }
 
