@@ -1,5 +1,6 @@
 package com.vrba.plugins.facebookanalytics;
 
+import com.getcapacitor.Bridge;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
@@ -15,9 +16,13 @@ public class FacebookAnalytics extends Plugin {
 
     @Override
     public void load() {
-        super.load();
+        if (bridge == null) {
+            bridge = this.getBridge();
+        }
 
-        logger = AppEventsLogger.newLogger(this.bridge.getActivity());
+        logger = AppEventsLogger.newLogger(bridge.getActivity().getApplicationContext());
+
+        super.load();
     }
 
     @PluginMethod
@@ -27,7 +32,7 @@ public class FacebookAnalytics extends Plugin {
             return;
         }
 
-        String event = call.getString("value");
+        String event = call.getString("event");
         JSObject params = call.getObject("params", new JSObject());
 
         if (params.length() > 0) {
