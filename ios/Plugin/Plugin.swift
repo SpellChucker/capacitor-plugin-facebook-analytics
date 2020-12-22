@@ -17,13 +17,21 @@ public class FacebookAnalytics: CAPPlugin {
 
         print(event)
 
-        guard let params = call.getObject("params") else {
-            AppEvents.logEvent(.init(event))
-            call.success()
-            return;
+        if let valueToSum = call.getDouble("valueToSum") {
+            if let params = call.getObject("params") {
+                AppEvents.logEvent(.init(event), valueToSum: valueToSum, parameters: params)
+            } else {
+                AppEvents.logEvent(.init(event), valueToSum: valueToSum)
+            }
+            
+        } else {
+            if let params = call.getObject("params") {
+                AppEvents.logEvent(.init(event), parameters: params)
+            } else {
+                AppEvents.logEvent(.init(event))
+            }
         }
-
-        AppEvents.logEvent(.init(event), parameters: params)
+        
 
         call.success()
     }

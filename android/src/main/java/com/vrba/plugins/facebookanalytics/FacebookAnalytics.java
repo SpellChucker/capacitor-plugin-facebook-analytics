@@ -34,6 +34,7 @@ public class FacebookAnalytics extends Plugin {
 
         String event = call.getString("event");
         JSObject params = call.getObject("params", new JSObject());
+        Double valueToSum = call.getDouble("valueToSum", null);
 
         if (params.length() > 0) {
             Bundle parameters = new Bundle();
@@ -44,9 +45,18 @@ public class FacebookAnalytics extends Plugin {
                 String value = params.getString(key);
                 parameters.putString(key, value);
             }
-            logger.logEvent(event, parameters);
+            if(valueToSum != null) {
+                logger.logEvent(event, valueToSum, parameters);
+            } else {
+                logger.logEvent(event, parameters);
+            }
+
         } else {
-            logger.logEvent(event);
+            if(valueToSum != null) {
+                logger.logEvent(event, valueToSum);
+            } else {
+                logger.logEvent(event);
+            }
         }
 
         call.success();

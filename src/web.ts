@@ -9,7 +9,7 @@ export class FacebookAnalyticsWeb extends WebPlugin implements FacebookAnalytics
     });
   }
 
-  logEvent(options: { event: string, params?: any }): Promise<string> {
+  logEvent(options: { event: string, valueToSum?: number, params?: any }): Promise<string> {
     // TODO: Implement.
     return Promise.resolve(options.event);
   }
