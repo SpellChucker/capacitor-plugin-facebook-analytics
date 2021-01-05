@@ -9,7 +9,7 @@ end
 
 target 'Plugin' do
   capacitor_pods
-  pod 'FacebookCore', '0.9.0'
+  pod 'FBSDKCoreKit', '~>8.0.0'
 end
 
 target 'PluginTests' do

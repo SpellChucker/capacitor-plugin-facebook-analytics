@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '11.0'
   s.dependency 'Capacitor'
   s.swift_version = '5.1'
-  s.dependency 'FacebookCore', '0.9.0'
+  s.dependency 'FBSKCoreKit', '~> 8.0.0'
+
 end
