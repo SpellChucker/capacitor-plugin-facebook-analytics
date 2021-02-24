@@ -66,9 +66,11 @@ More information can be found here: https://developers.facebook.com/docs/app-eve
 import { Plugins } from '@capacitor/core';
 const { FacebookAnalytics } = Plugins;
 
-// With Params.
-await FacebookAnalytics.logEvent({ event: 'some_event', params: { someParam: 'someParam' } });
-
-// Without Params.
-await FacebookAnalytics.logEvent({ event: 'some_event' });
+// Example commands.
+await FacebookAnalytics.logEvent(options: { event: string, params?: any }): Promise<string>;
+await FacebookAnalytics.logPurchase(options: {amount: number, currency: string, params: any}): Promise<string>;
+await FacebookAnalytics.logAddPaymentInfo(options: {success: number}): Promise<string>;
+await FacebookAnalytics.logAddToCart(options: {amount: number, currency: string, params?: any}): Promise<string>;
+await FacebookAnalytics.logCompleteRegistration(options: {params?: any}): Promise<string>;
+await FacebookAnalytics.logInitiatedCheckout(options: {amount: number, params?: any}): Promise<string>;
 ```

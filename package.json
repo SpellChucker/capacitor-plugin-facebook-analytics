@@ -1,6 +1,6 @@
 {
   "name": "capacitor-plugin-facebook-analytics",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Provide Facebook analytics functionality to Capacitor-based projects.",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
