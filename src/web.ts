@@ -9,35 +9,31 @@ export class FacebookAnalyticsWeb extends WebPlugin implements FacebookAnalytics
     });
   }
 
-  logEvent(options: { event: string, valueToSum?: number, params?: any }): Promise<string> {
-    // TODO: Implement.
-    return Promise.resolve(options.event);
+  logEvent(_: { event: string, valueToSum?: number, params?: any }): Promise<string> {
+    throw super.unimplemented();
   }
-  logPurchase(options: { amount: number, params?: any, currency: string }): Promise<string> {
-    // TODO: Implement.
-    return Promise.resolve(JSON.stringify(options));
+
+  logPurchase(_: { amount: number, params?: any, currency: string }): Promise<string> {
+    throw super.unimplemented();
   }
-  logAddPaymentInfo(options: {success: number}): Promise<string> {
-    // TODO: Implement.
-    return Promise.resolve(JSON.stringify(options));
+
+  logAddPaymentInfo(_: {success: number}): Promise<string> {
+    throw super.unimplemented();
   }
-  logAddToCart(options: {amount: number, currency: string, params?: any}): Promise<string> {
-    // TODO: Implement.
-    return Promise.resolve(JSON.stringify(options));
+
+  logAddToCart(_: {amount: number, currency: string, params?: any}): Promise<string> {
+    throw super.unimplemented();
   }
-  logCompleteRegistration(options: {params?: any}): Promise<string> {
-    // TODO: Implement.
-    return Promise.resolve(JSON.stringify(options));
+
+  logCompleteRegistration(_: {params?: any}): Promise<string> {
+    throw super.unimplemented();
   }
-  logInitiatedCheckout(options: {amount: number, params?: any}): Promise<string> {
-    // TODO: Implement.
-    return Promise.resolve(JSON.stringify(options));
+  
+  logInitiatedCheckout(_: {amount: number, params?: any}): Promise<string> {
+    throw super.unimplemented();
   }
 }
 
-const FacebookAnalytics = new FacebookAnalyticsWeb();
 
-export { FacebookAnalytics };
 
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(FacebookAnalytics);
+
